@@ -37,21 +37,108 @@ public class Operadores {
         Scanner teclado = new Scanner(System.in);
 
         System.out.print("Digite um numero: ");
-        int numero1 = teclado.nextInt();
+        int num1 = teclado.nextInt();
         System.out.print("Digite outro numero: ");
-        int numero2 = teclado.nextInt();
+        int num2 = teclado.nextInt();
 
-        System.out.println(numero1 + " == " +numero2 + ": " + simNao(numero1 == numero2) );
-        System.out.println(numero1 + " != " +numero2 + ": " + (numero1 != numero2) );
-        System.out.println(numero1 + " > " +numero2 + ": " + (numero1 > numero2) );
-        System.out.println(numero1 + " < " +numero2 + ": " + (numero1 < numero2) );
-        System.out.println(numero1 + " >= " +numero2 + ": " + (numero1 >= numero2) );
-        System.out.println(numero1 + " <= " +numero2 + ": " + (numero1 <= numero2) );
-        
+        System.out.println(num1 + " == " +num2 + ": " + simNao(num1 == num2) );
+        System.out.println(num1 + " != " +num2 + ": " + simNao(num1 != num2) );
+        System.out.println(num1 + " > " +num2 + ": " + simNao(num1 > num2) );
+        System.out.println(num1 + " < " +num2 + ": " + simNao(num1 < num2) );
+        System.out.println(num1 + " >= " +num2 + ": " + simNao(num1 >= num2) );
+        System.out.println(num1 + " <= " +num2 + ": " + simNao(num1 <= num2) );
+
+    }
+
+    public static void item3(){
+        //Operadores lógicos && || !=
+        boolean maiorIdade = false;
+        boolean temFilho = true;
+        boolean temCursoSuperior = true;
+        boolean temPosGraduacao = true;
+        boolean temExperiencia = true;
+
+        if (!maiorIdade){
+            System.out.println("Esta bloqueado");
+        }
+
+        if (temCursoSuperior || temExperiencia || !temPosGraduacao){
+            System.out.println("Esta apto para dev Junior");
+        }
+
+        if (temCursoSuperior && temExperiencia){
+            System.out.println("Esta apto para dev Pleno");
+        }
+
+        if (temCursoSuperior && temExperiencia && temPosGraduacao){
+            System.out.println("Esta apto para dev Senior");
+        }
+    }
+
+    public static void item4(){
+        //Operadores de incremento e decremento (++ / --)
+        int contador = 0;
+        contador++;
+        contador++;
+        contador++;
+
+        System.out.println("contador: "+ contador);
+
+        int indice = 30;
+        int indiceAnterior = indice++;
+        System.out.println("indice: " + indice);
+        System.out.println("indiceAnterior: "+ indiceAnterior);
+
+        //pré incremento
+        int novoIndice = ++indice;
+        System.out.println("indice: " + indice);
+        System.out.println("Novo indice: " + novoIndice);
+    }
+
+    public static void item5(){
+        //operadores de atribuição (=,+=,-=,*=,/=,%=)
+        Scanner scanner = new Scanner(System.in);
+
+        int num1;
+        int num2;
+        System.out.println("Escreva um número: ");
+        num1 = scanner.nextInt();
+
+        System.out.println("Escreva outro número: ");
+        num2 = scanner.nextInt();
+
+        num1 += num2;
+        System.out.println("num1 += num2");
+        System.out.println("num1: " + num1);
+        System.out.println("num2: " + num2);
+
+
+        num1 -= num2;
+        System.out.println("num1 -= num2");
+        System.out.println("num1: " + num1);
+        System.out.println("num2: " + num2);
+
+        num1 *= num2;
+        System.out.println("num1 *= num2");
+        System.out.println("num1: " + num1);
+        System.out.println("num2: " + num2);
+
+        num1 /= num2;
+        System.out.println("num1 /= num2");
+        System.out.println("num1: " + num1);
+        System.out.println("num2: " + num2);
+
+        num1 %= num2;
+        System.out.println("num1 %= num2");
+        System.out.println("num1: " + num1);
+        System.out.println("num2: " + num2);
+
+        scanner.close();
     }
     
     static String simNao(boolean valor){
-        //Para casa!!!
+     String resultado = valor ? "Sim": "Não";
+     return resultado;
     }
     
 }
