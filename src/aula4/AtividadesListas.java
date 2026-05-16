@@ -38,29 +38,117 @@ public class AtividadesListas {
     }
 
     public static void atividade3(){
-        ArrayList<Integer> listaNumeros = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            int num = Integer.parseInt(JOptionPane.showInputDialog("Digite o " + (i + 1) + "º número para a lista:"));
-            listaNumeros.add(num);
+        ArrayList<Integer> numeros = new ArrayList<>();
+
+        while(true){
+            String entradaStr = JOptionPane.showInputDialog("Informe um número: ");
+            if (entradaStr == null){
+                break;
+            }
+            Integer entradaInt = Integer.parseInt(entradaStr);
+            numeros.add(entradaInt);
         }
 
-        int indice = Integer.parseInt(JOptionPane.showInputDialog("Lista atual: " + listaNumeros +
-                "\nDigite a posição (índice) que deseja alterar:"));
+        JOptionPane.showMessageDialog(null, numeros);
 
-        if (indice >= 0 && indice < listaNumeros.size()) {
+        int numeroAtual = Integer.parseInt(JOptionPane.showInputDialog("Informe o numero a ser substituido: "));
+        int novoValor = Integer.parseInt(JOptionPane.showInputDialog("Informe o novo valor: "));
 
-            int novoValor = Integer.parseInt(JOptionPane.showInputDialog("Digite o novo valor para a posição " + indice + ":"));
-            listaNumeros.set(indice-1, novoValor);
+        int indice = numeros.indexOf(numeroAtual);
 
-            JOptionPane.showMessageDialog(null, "Valor atualizado com sucesso!\nLista final: " + listaNumeros);
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro: A posição " + indice + " não existe na lista.");
+        if(indice >=0 && indice <= numeros.size()-1){
+            numeros.set(indice, novoValor);
         }
 
-        System.out.println("Lista final no console: " + listaNumeros);
+        JOptionPane.showMessageDialog(null, numeros);
     }
 
     public static void atividade4(){
+        ArrayList<String> nomes = new ArrayList<>();
+
+        //Recebe pelo menos 5 nomes do usuario, até ele decidir parar.
+        while(true){
+            String entrada = JOptionPane.showInputDialog("Informe um nome: ");
+            if (entrada == null){
+                if(nomes.size()>=5){
+                    break;
+                }
+                else{
+                    int faltam = 5 - nomes.size();
+                    JOptionPane.showMessageDialog(null, "Informe pelo menos 5 nomes, faltam "+faltam);
+                }
+            }else{
+                nomes.add(entrada);
+            }
+        }
+        JOptionPane.showMessageDialog(null,"A lista tem um tamanho de "+nomes.size());
+        JOptionPane.showMessageDialog(null,"O primeiro nome é: "+nomes.get(0)+", O último é: "+nomes.get((nomes.size()-1)));
+
+        String novoNome = JOptionPane.showInputDialog("Digite um novo nome para a segunda posição: ");
+        nomes.set(1,novoNome);
+        String removeNome = JOptionPane.showInputDialog("A lista é "+nomes+". Informe um nome para remover: ");
+        boolean conseguiu = nomes.remove(removeNome);
+        if (conseguiu){
+            JOptionPane.showMessageDialog(null,"Operação realizada com sucesso! nome: "+removeNome+" removido com sucesso! nova lista: "+nomes);
+        }else{
+            JOptionPane.showMessageDialog(null,"Operação falhou! nome: "+removeNome+" não foi removido! lista: "+nomes);
+        }
+
+        String nomeVerificar = JOptionPane.showInputDialog("Escolha outro nome: ");
+
+        if (nomes.contains(nomeVerificar)){
+            JOptionPane.showMessageDialog(null,"A lista final é: "+nomes);
+        }else{
+            JOptionPane.showMessageDialog(null,"Nome escolhido não existe na lista! A lista final é: "+nomes);
+        }
+
+    }
+
+    public static void atividade5(){
+
+        ArrayList<Double> notas = new ArrayList<>();
+        ArrayList<Double> notasAprovadas = new ArrayList<>();
+
+        while(true){
+            String notaStr = JOptionPane.showInputDialog("Informe a nota" + (notas.size()+1) + ": ");
+            if (notaStr == null){
+                break;
+            }
+            Double notaDouble = Double.parseDouble(notaStr);
+            notas.add(notaDouble);
+
+            if(notaDouble >= 7){
+                notasAprovadas.add(notaDouble);
+            }
+        }
+
+        double soma = 0.0;
+        double maiorNota = notas.get(0);
+        double menorNota = notas.get(0);
+
+        for(int i = 0; i < notas.size(); i++){
+
+            soma += notas.get(i);
+
+            if (notas.get(i) > maiorNota){
+                maiorNota = notas.get(i);
+            }
+            if (notas.get(i) < menorNota){
+                menorNota = notas.get(i);
+            }
+        }
+
+        double media = soma/notas.size();
+
+        String mediaStr = String.format("%.1f", media);
+
+        JOptionPane.showMessageDialog(null,
+                "A média das notas é: " + mediaStr + "\n" +
+                        "Maior nota: " + maiorNota + "\n" +
+                        "Menor nota: " + menorNota + "\n" +
+                        "Notas aprovadas: " + notasAprovadas
+        );
+
 
     }
 
