@@ -6,6 +6,15 @@ public class Funcionario {
     private String nome;
     private double salario;
 
+    public Funcionario(String nome, double salario) {
+        this.nome = nome;
+        this.salario = salario;
+    }
+
+    public Double calcularSalario(int diasTrabalhados){
+        return (salario/30) * diasTrabalhados;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -22,8 +31,5 @@ public class Funcionario {
         this.salario = salario;
     }
 
-    public double calcularSalario(){
-        return this.salario;
-    }
 
 }

@@ -1,23 +1,15 @@
 package aula6.atividade6;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        Funcionario funcionario = new Funcionario();
-        Gerente gerente = new Gerente();
-
-        funcionario.setNome("Joao");
-        funcionario.setSalario(1000);
-
-        gerente.setNome("Lucas");
-        gerente.setSalario(2000);
+        Funcionario funcionario = new Funcionario("kkkkkkkkkk", 10000);
+        Gerente gerente = new Gerente("Lucas", 20000);
         gerente.setBonus(500);
+        JOptionPane.showMessageDialog(null, funcionario.getNome() + "\n Salário Calculado: " + funcionario.calcularSalario(15));
+        JOptionPane.showMessageDialog(null, gerente.getNome() + "\n Salário Calculado: " + gerente.calcularSalario(15));
 
-        System.out.println("Funcionário: " + funcionario.getNome());
-        System.out.println("Salário Calculado: R$ " + funcionario.calcularSalario());
-        System.out.println("---------------------------------");
-        System.out.println("Gerente: " + gerente.getNome());
-        System.out.println("Salário Base: R$ " + gerente.getSalario());
-        System.out.println("Bônus: R$ " + gerente.getBonus());
-        System.out.println("Salário Calculado (com bônus): R$ " + gerente.calcularSalario());
+
     }
 }

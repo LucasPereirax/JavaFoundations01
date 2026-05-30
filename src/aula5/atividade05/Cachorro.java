@@ -2,16 +2,18 @@ package aula5.atividade05;
 
 import javax.swing.*;
 
-public class Cachorro extends Animal{
+public class Cachorro extends Animal {
+
     String raca;
 
-    @Override
-    public void emitirSom() {
-        JOptionPane.showMessageDialog(null, "Au Au");
-    }
-
-    public Cachorro(String raca) {
-        super();
+    public Cachorro(String nome, int idade, String raca) {
+        super(nome, idade);
         this.raca = raca;
     }
+
+    void emitirSom() {
+        JOptionPane.showMessageDialog(null, "Au au au");
+    }
+
+
 }

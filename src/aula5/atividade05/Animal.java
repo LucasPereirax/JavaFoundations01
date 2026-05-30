@@ -3,26 +3,20 @@ package aula5.atividade05;
 import javax.swing.*;
 
 public class Animal {
+
+    //Atributos
     String nome;
     int idade;
 
-    public void emitirSom(){
-        JOptionPane.showMessageDialog(null, "Som genérico de animal");
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
+    public Animal(String nome, int idade) {
+        this.nome = nome;
         this.idade = idade;
     }
 
-    public String getNome() {
-        return nome;
+    //Metodos
+    void emitirSom() {
+        JOptionPane.showMessageDialog(null, "Som genérico de animal");
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+
 }
