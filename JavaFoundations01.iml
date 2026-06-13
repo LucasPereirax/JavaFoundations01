@@ -17,6 +17,8 @@
       <excludeFolder url="file://$MODULE_DIR$/src/aula5" />
       <excludeFolder url="file://$MODULE_DIR$/src/aula6" />
       <excludeFolder url="file://$MODULE_DIR$/src/aula6/atividade6" />
+      <excludeFolder url="file://$MODULE_DIR$/src/aula7" />
+      <excludeFolder url="file://$MODULE_DIR$/src/aula7/atividade08" />
     </content>
     <content url="file://$MODULE_DIR$/src/aula5/aula5.atividade05" />
     <orderEntry type="inheritedJdk" />
